@@ -6,7 +6,7 @@ boilerplate with
  - webpack
  - hot reload
  - mobx-state-tree
- - support production build caching and vwwndor code splitting
+ - support production build caching and vendor code splitting
  
  
 ## Usage
