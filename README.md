@@ -17,11 +17,11 @@ npm i
 
 start dev server with hot reload
 ```
-npm run satrt
+npm run start
 ```
 
 
-make production build
+production build
 ```
 npm build
 ```
