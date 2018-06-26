@@ -6,7 +6,17 @@
     "target": "es5",
     "jsx": "react",
     "sourceMap": true,
-    "allowJs": true
+    "allowJs": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "dom",
+      "es5",
+      "es2015.symbol",
+      "es2015.core",
+      "es2015.collection",
+      "es2015.iterable",
+      "es2015"
+    ]
   },
   "include": [
     "./src/**/*.ts"
