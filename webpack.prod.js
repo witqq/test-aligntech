@@ -11,6 +11,13 @@ module.exports = merge(common, {
         filename: '[name].[chunkhash].js',
         chunkFilename: '[name].[chunkhash].js',
     },
+    module: {
+        rules: [
+            {
+                test: /\.tsx?$/, loader: "awesome-typescript-loader"
+            }
+        ],
+    },
     plugins: [
         new webpack.HashedModuleIdsPlugin(),
         new CleanWebpackPlugin(['dist']),

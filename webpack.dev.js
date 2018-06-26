@@ -9,6 +9,25 @@ module.exports = merge(common, {
         contentBase: './dist',
         hot: true
     },
+    module: {
+
+        rules: [
+            {
+                test: /\.tsx?$/, loader: "awesome-typescript-loader",
+                options: {
+                    "useBabel": true,
+                    "babelOptions": {
+                        "babelrc": false, /* Important line */
+                        "presets": [
+                            ["@babel/preset-env", {"targets": {"browsers": "last 2 versions, ie 11"}, "modules": false}]
+                        ],
+                        plugins: ['react-hot-loader/babel'],
+                    },
+                    "babelCore": "@babel/core", // needed for Babel v7}
+                }
+            }
+        ]
+    },
     plugins: [
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
