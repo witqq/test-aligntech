@@ -8,11 +8,16 @@ module.exports = {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
+    // TODO move to dev config
+    devtool: 'inline-source-map',
     plugins: [
         // todo move CleanWebpackPlugin to production config
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin()
     ],
+    devServer: {
+        contentBase: './dist'
+    },
     module: {
         rules: [
             {
