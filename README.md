@@ -30,5 +30,6 @@ npm build
  - tslint
  - jest
  - build notifications
+ - add polyfills for IE (Map, Set, etc)
 
 
