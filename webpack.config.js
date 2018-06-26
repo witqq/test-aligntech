@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
     entry: './src/index.js',
@@ -10,14 +11,18 @@ module.exports = {
     },
     // TODO move to dev config
     devtool: 'inline-source-map',
+    devServer: {
+        contentBase: './dist',
+        hot: true
+    },
     plugins: [
         // todo move CleanWebpackPlugin to production config
         new CleanWebpackPlugin(['dist']),
+        // TODO move to dev config
+        new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin()
     ],
-    devServer: {
-        contentBase: './dist'
-    },
+
     module: {
         rules: [
             {
