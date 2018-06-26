@@ -7,7 +7,12 @@ const webpack = require('webpack');
 
 module.exports = merge(common, {
     mode: 'production',
+    output: {
+        filename: '[name].[chunkhash].js',
+        chunkFilename: '[name].[chunkhash].js',
+    },
     plugins: [
+        new webpack.HashedModuleIdsPlugin(),
         new CleanWebpackPlugin(['dist']),
         new UglifyJSPlugin(),
         new webpack.DefinePlugin({
