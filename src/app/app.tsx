@@ -3,6 +3,7 @@ import {CurrencyRates} from "./components/currency-rates";
 import {AppStore} from "./app-store";
 import {applySnapshot, getSnapshot} from "mobx-state-tree";
 import {hot} from "react-hot-loader";
+import "antd/dist/antd.less"
 
 const appStore = AppStore.create();
 
