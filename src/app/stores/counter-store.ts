@@ -1,21 +1,6 @@
-import {types, IModelType} from "mobx-state-tree";
+import {types} from "mobx-state-tree";
 
-export interface CounterStoreSnap {
-  cnt: number;
-}
-
-export interface CounterStoreType extends CounterStoreSnap {
-  increment(): void;
-  decrement(): void;
-}
-
-export interface CounterStore extends CounterStoreType {
-
-}
-
-export type CounterStoreModelType = IModelType<Partial<CounterStoreSnap>, CounterStoreType>;
-
-export const CounterStore: CounterStoreModelType =
+export const CounterStore =
   types.model("CounterStore", {
     cnt: types.optional(types.number, 0)
   })
@@ -28,3 +13,5 @@ export const CounterStore: CounterStoreModelType =
         self.cnt--
       }
     }));
+
+export type CounterStore = typeof CounterStore.Type
