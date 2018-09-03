@@ -4,5 +4,5 @@ import {CurrencySymbolsResponse} from "./currency-symbols-response";
 export interface CurrencyApi {
   getLatestValues(base?: string, symbols?: string[]): Promise<CurrencyLatestResponce>;
 
-  getSymbols():Promise<CurrencySymbolsResponse>;
+  getSymbols(): Promise<CurrencySymbolsResponse>;
 }

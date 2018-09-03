@@ -2,7 +2,6 @@ import * as React from "react"
 import {Component} from "react"
 import {observer} from "mobx-react";
 import {CurrencyRatesStore} from "../stores/currency-rates-store";
-import Button from "antd/es/button/button";
 import {SymbolsPicker} from "./symbols-picker";
 
 export interface CurrencyRatesProps {

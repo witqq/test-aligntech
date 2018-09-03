@@ -23,7 +23,7 @@ export class CurrencyApiImpl implements CurrencyApi {
 
   getLatestValues(base?: string, symbols?: string[]): Promise<CurrencyLatestResponce> {
 
-    return this.get<CurrencyLatestResponce>(`/latest`, {params: createApiParams({base, symbols:symbols.join(",")})});
+    return this.get<CurrencyLatestResponce>(`/latest`, {params: createApiParams({base, symbols: symbols.join(",")})});
   }
 
   getSymbols(): Promise<CurrencySymbolsResponse> {
