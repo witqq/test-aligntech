@@ -4,8 +4,8 @@ import {CurrencySymbolsResponse} from "../services/interfaces/currency-symbols-r
 import {CurrencyLatestResponce} from "../services/interfaces/currency-latest-responce";
 import {getCurrencyPollInterval} from "../utils/env";
 
-const INITIAL_SYMBOLS = {"USD":"USD", "EUR":"USD"};
-const INITIAL_VALUE=Object.keys(INITIAL_SYMBOLS);
+const INITIAL_SYMBOLS = {"USD": "USD", "EUR": "USD"};
+const INITIAL_VALUE = Object.keys(INITIAL_SYMBOLS);
 const baseSymbol = "EUR";
 
 export const CurrencyRatesStore = types.model({
@@ -16,7 +16,7 @@ export const CurrencyRatesStore = types.model({
   loading: true
 })
   .views(self => ({
-    get symbolsList(){
+    get symbolsList() {
       return Array.from(self.symbols.keys());
     }
   }))
@@ -58,6 +58,10 @@ export const CurrencyRatesStore = types.model({
           clearInterval(interval);
           interval = null;
         }
+      },
+      selectSymbols(symbols: string[]) {
+        self.currentSymbols = symbols as any;
+        self.load();
       }
     }
   });
