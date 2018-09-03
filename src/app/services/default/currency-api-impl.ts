@@ -6,12 +6,12 @@ import {CurrencyLatestResponce} from "../interfaces/currency-latest-responce";
 
 export class CurrencyApiImpl implements CurrencyApi {
 
-  axios = Axios.create({
+  private axios = Axios.create({
       baseURL: "http://data.fixer.io/api"
     }
   );
 
-  get<T = any>(url: string, params?: any): Promise<T> {
+  private get<T = any>(url: string, params?: any): Promise<T> {
     return this.axios.get(url, createApiParams(params))
       .then(({data}) => {
         if (!data.success) {
@@ -23,7 +23,7 @@ export class CurrencyApiImpl implements CurrencyApi {
 
   getLatestValues(base?: string, symbols?: string[]): Promise<CurrencyLatestResponce> {
 
-    return this.get<CurrencyLatestResponce>(`/latest`, {params: createApiParams({base, symbols})});
+    return this.get<CurrencyLatestResponce>(`/latest`, {params: createApiParams({base, symbols:symbols.join(",")})});
   }
 
   getSymbols(): Promise<CurrencySymbolsResponse> {
