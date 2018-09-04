@@ -1,18 +1,19 @@
-# ts-react-mobx-hot-reload-boilerplate
+# Test task
 
-boilerplate with
- - react
- - typescript
- - webpack
- - hot reload
- - mobx-state-tree
- - support production build caching and vendor code splitting
+
  
  
 ## Usage
 install dependencies
 ```
 npm i
+```
+
+Create .env file in project root for set project settings
+
+```
+CURRENCY_POLL_INTERVAL=3600000
+FIXER_API_KEY=<FIXER_API_KEY> #required
 ```
 
 start dev server with hot reload
@@ -26,10 +27,5 @@ production build
 npm build
 ```
 
-## TODO
- - tslint
- - jest
- - build notifications
- - add polyfills for IE (Map, Set, etc)
 
 
