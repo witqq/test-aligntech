@@ -11,7 +11,7 @@ export const getCurrencyPollInterval = () => {
 export const getFixerApiKey = () => {
   const key = process.env.FIXER_API_KEY;
   if (key == null) {
-    throw new Error("You should create .env file in root directory and set FIXER_API_KEY for make api calls.")
+    throw new Error("You should create .env file in root directory and set FIXER_API_KEY to make api calls.")
   }
   return key;
 }
