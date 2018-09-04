@@ -3,6 +3,8 @@ import {observer} from "mobx-react";
 import {computed} from "mobx";
 import {Select} from "antd";
 import {OptionProps} from "antd/lib/select";
+import Form from "antd/es/form/Form";
+import FormItem from "antd/es/form/FormItem";
 
 const Option = Select.Option;
 
@@ -37,19 +39,30 @@ export class SymbolsPicker extends React.Component<SymbolsPickerProps> {
 
   render() {
     return (
-      <Select
-        mode="multiple"
-        value={this.value}
-        filterOption={this.filterOption}
-        placeholder="Select users"
-        onChange={this.props.onChange}
-        style={{width: "100%"}}>
-        {this.symbolsKeys.map(s => (
-            <Option key={s} value={s} title={this.symbols.get(s)}>{this.symbols.get(s)}</Option>
-          )
-        )
-        }
-      </Select>
+      <Form>
+        <FormItem label={"Select currency"}
+                  labelCol={{
+                    xs: {span: 24},
+                    sm: {span: 4}
+                  }}
+                  wrapperCol={{
+                    xs: {span: 24},
+                    sm: {span: 20}
+                  }}>
+          <Select
+            mode="multiple"
+            value={this.value}
+            filterOption={this.filterOption}
+            placeholder="Select users"
+            onChange={this.props.onChange}>
+            {this.symbolsKeys.map(s => (
+                <Option key={s} value={s} title={this.symbols.get(s)}>{this.symbols.get(s)}</Option>
+              )
+            )
+            }
+          </Select>
+        </FormItem>
+      </Form>
     );
   }
 }

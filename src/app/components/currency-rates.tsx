@@ -3,6 +3,8 @@ import {Component} from "react"
 import {observer} from "mobx-react";
 import {CurrencyRatesStore} from "../stores/currency-rates-store";
 import {SymbolsPicker} from "./symbols-picker";
+import {CurrencyRatesTable} from "./currency-rates-table";
+import {Card} from "antd";
 
 export interface CurrencyRatesProps {
   store: CurrencyRatesStore;
@@ -16,18 +18,17 @@ export class CurrencyRates extends Component<CurrencyRatesProps> {
   }
 
   render() {
-    const store = this.store;
+    const {symbols, rates, currentSymbols, selectSymbols, loading} = this.store;
     return (
-      <div>
-        <div>
-          <SymbolsPicker symbols={store.symbols}
-                         value={store.currentSymbols}
-                         onChange={store.selectSymbols}/>
-        </div>
-        <div>
-          {store.currentSymbols.map(s => <div>{s} {store.rates.get(s)}</div>)}
-        </div>
-      </div>
+      <Card>
+
+        <SymbolsPicker symbols={symbols}
+                       value={currentSymbols}
+                       onChange={selectSymbols}/>
+        <CurrencyRatesTable symbols={symbols}
+                            rates={rates}
+                            loading={loading}/>
+      </Card>
     )
   }
 }

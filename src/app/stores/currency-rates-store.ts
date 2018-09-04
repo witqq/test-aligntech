@@ -42,7 +42,7 @@ export const CurrencyRatesStore = types.model({
           self.rates = result.rates as any;
         }
         finally {
-          self.loading = true;
+          self.loading = false;
         }
       })
     })
